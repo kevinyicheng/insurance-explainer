@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>附加條款說明 — 水漬險 ＆ 爆炸險</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: #f4f6f9;
+      color: #2c2c2c;
+      padding: 24px 16px 48px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    header h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #1a3a5c;
+    }
+    header p {
+      color: #666;
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+
+    /* ── Tab 切換 ── */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .tab-btn {
+      padding: 10px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .tab-btn.water  { background: #def0fb; color: #1565c0; }
+    .tab-btn.explosion { background: #fde8d8; color: #bf360c; }
+    .tab-btn.water.active  { background: #1565c0; color: #fff; box-shadow: 0 4px 12px rgba(21,101,192,.35); }
+    .tab-btn.explosion.active { background: #e64a19; color: #fff; box-shadow: 0 4px 12px rgba(230,74,25,.35); }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── 共用卡片 ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-body { padding: 16px 20px 20px; }
+
+    /* ── 水漬險色系 ── */
+    .water .card-header { background: #e3f2fd; color: #1565c0; }
+
+    /* ── 爆炸險色系 ── */
+    .explosion .card-header { background: #fbe9e7; color: #bf360c; }
+
+    /* ── 條列項目 ── */
+    .item-list { list-style: none; }
+    .item-list li {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+    .item-list li:last-child { border-bottom: none; }
+    .badge-ok  { flex-shrink: 0; background: #e8f5e9; color: #2e7d32; border-radius: 6px; padding: 2px 8px; font-size: .78rem; font-weight: 700; height: fit-content; margin-top: 2px; }
+    .badge-no  { flex-shrink: 0; background: #ffebee; color: #c62828; border-radius: 6px; padding: 2px 8px; font-size: .78rem; font-weight: 700; height: fit-content; margin-top: 2px; }
+    .badge-ex  { flex-shrink: 0; background: #fff8e1; color: #e65100; border-radius: 6px; padding: 2px 8px; font-size: .78rem; font-weight: 700; height: fit-content; margin-top: 2px; }
+
+    /* ── 提示框 ── */
+    .tip-box {
+      background: #fffde7;
+      border-left: 4px solid #f9a825;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: .88rem;
+      color: #555;
+      margin-top: 8px;
+      line-height: 1.7;
+    }
+
+    /* ── 對照表 ── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+    .compare-table th {
+      background: #f5f5f5;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    .compare-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .ok-cell { color: #2e7d32; }
+    .no-cell { color: #c62828; }
+
+    footer {
+      text-align: center;
+      color: #aaa;
+      font-size: .8rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📋 附加條款白話說明</h1>
+  <p>點選下方按鈕，查看各險種的承保與不保內容</p>
+</header>
+
+<!-- Tab 按鈕 -->
+<div class="tabs">
+  <button class="tab-btn water active" onclick="switchTab('water')">💧 水漬險</button>
+  <button class="tab-btn explosion" onclick="switchTab('explosion')">💥 爆炸險</button>
+</div>
+
+<!-- ══════════════ 水漬險 ══════════════ -->
+<div id="tab-water" class="tab-content water active">
+
+  <!-- 一句話摘要 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">💡</span>一句話說清楚</div>
+    <div class="card-body">
+      <p style="font-size:1.05rem; line-height:1.8;">
+        因為<strong>管線破裂、設備滲漏、或雨水由屋頂/門窗灌入</strong>造成的財物損失，<span style="color:#1565c0; font-weight:600;">保險公司負責賠</span>。<br/>
+        但如果是<strong>洪水、颱風氾濫、下水道倒灌</strong>等天災型水患，就<span style="color:#c62828; font-weight:600;">不在理賠範圍</span>。
+      </p>
+    </div>
+  </div>
+
+  <!-- 保什麼 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">✅</span>保險公司「會賠」的情況</div>
+    <div class="card-body">
+      <ul class="item-list">
+        <li>
+          <span class="badge-ok">賠</span>
+          <div>
+            <strong>水槽、水管或儲水設備破損或溢水</strong><br/>
+            <span style="color:#666; font-size:.88rem;">例：樓上鄰居水管爆裂、自家浴缸溢水淹損家具</span>
+          </div>
+        </li>
+        <li>
+          <span class="badge-ok">賠</span>
+          <div>
+            <strong>供水設備、蒸氣管、冷暖氣、冷凍設備的意外滲漏</strong><br/>
+            <span style="color:#666; font-size:.88rem;">例：冷氣機水盤意外漏水損壞電器</span>
+          </div>
+        </li>
+        <li>
+          <span class="badge-ok">賠</span>
+          <div>
+            <strong>雨水、雪霜由屋頂、門窗或通氣口進入屋內</strong><br/>
+            <span style="color:#666; font-size:.88rem;">例：颱風吹破屋頂，雨水灌入造成家具損壞（屋頂本身未壞）</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 不保什麼 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">🚫</span>保險公司「不賠」的情況</div>
+    <div class="card-body">
+      <ul class="item-list">
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>水槽、水管設備「本身」的損壞</strong><br/><span style="color:#666; font-size:.88rem;">管線爆裂後，只賠被水波及的財物，管線本身的修繕不賠</span></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>自動消防灑水系統滲漏</strong><br/><span style="color:#666; font-size:.88rem;">消防噴頭漏水造成的損失不在此險範圍</span></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>洪水、潮汐、地面積水氾濫，或颱風直接造成的損失</strong><br/><span style="color:#666; font-size:.88rem;">天災型水患需另外投保「颱風洪水險」</span></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>溝渠、下水道溢流或倒灌</strong></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>牆壁、地基、地下室或邊道滲漏</strong><br/><span style="color:#666; font-size:.88rem;">建築結構問題引發的滲水</span></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>因固有瑕疵、正常耗損、乾裂、鏽蝕、蟲蛀</strong></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>氣候變化引起的潮濕、發霉</strong></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>雨水經由「已損毀」的屋頂/門窗進入</strong><br/><span style="color:#666; font-size:.88rem;">屋頂若本就有破損，雨水灌入不賠；若屋頂是好的就賠</span></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>置於露天或未完全關閉場所的財物</strong><br/><span style="color:#666; font-size:.88rem;">例外：固定地點的露天機器設備及貯槽，或有特別約定者</span></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>任何間接損失（Consequential Loss）</strong><br/><span style="color:#666; font-size:.88rem;">例：因漏水停業造成的營業損失</span></div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div><strong>被保險人重大過失擴大的損失</strong><br/><span style="color:#666; font-size:.88rem;">發生事故後若未採取措施止損，擴大部分不賠</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    ⚠️ <strong>小提醒：</strong>水漬險承保的是「意外滲漏」，自然老化或建築缺陷引起的水患不在保障範圍。如有需要，可加保「颱風洪水險」補足缺口。
+  </div>
+
+</div>
+
+<!-- ══════════════ 爆炸險 ══════════════ -->
+<div id="tab-explosion" class="tab-content explosion">
+
+  <!-- 一句話摘要 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">💡</span>一句話說清楚</div>
+    <div class="card-body">
+      <p style="font-size:1.05rem; line-height:1.8;">
+        <strong>真正的爆炸事故</strong>（瞬間能量釋放造成的毀損）<span style="color:#e64a19; font-weight:600;">保險公司負責賠</span>。<br/>
+        但<strong>震動、電弧、水管爆裂、音爆</strong>等雖聽起來像爆炸的事件，以及<strong>鍋爐/壓力設備本身</strong>的損壞，均<span style="color:#c62828; font-weight:600;">不在理賠範圍</span>。
+      </p>
+    </div>
+  </div>
+
+  <!-- 保什麼 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">✅</span>保險公司「會賠」的情況</div>
+    <div class="card-body">
+      <ul class="item-list">
+        <li>
+          <span class="badge-ok">賠</span>
+          <div>
+            <strong>直接因爆炸造成的財物毀損或滅失</strong><br/>
+            <span style="color:#666; font-size:.88rem;">例：廚房瓦斯爆炸損壞廚具、牆壁、地板等財物</span>
+          </div>
+        </li>
+        <li>
+          <span class="badge-ok">賠</span>
+          <div>
+            <strong>爆炸引起的震動所造成的損失</strong><br/>
+            <span style="color:#666; font-size:.88rem;">爆炸本身引起的震波破壞，仍在承保範圍內</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 不算爆炸的事故 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">⚠️</span>這些「不算爆炸」——不予理賠</div>
+    <div class="card-body">
+      <ul class="item-list">
+        <li>
+          <span class="badge-ex">除外</span>
+          <div><strong>一般震動</strong>（非爆炸引起）<br/><span style="color:#666; font-size:.88rem;">例：地震、交通震動</span></div>
+        </li>
+        <li>
+          <span class="badge-ex">除外</span>
+          <div><strong>電弧驟發</strong><br/><span style="color:#666; font-size:.88rem;">電氣設備短路閃弧不算爆炸</span></div>
+        </li>
+        <li>
+          <span class="badge-ex">除外</span>
+          <div><strong>水衝（Water Hammer）</strong><br/><span style="color:#666; font-size:.88rem;">管線因水流衝擊造成的震動或破裂</span></div>
+        </li>
+        <li>
+          <span class="badge-ex">除外</span>
+          <div><strong>水管爆炸或豁裂</strong><br/><span style="color:#666; font-size:.88rem;">水壓過高導致管線破裂，屬水漬險範疇</span></div>
+        </li>
+        <li>
+          <span class="badge-ex">除外</span>
+          <div><strong>音爆（Sonic Boom）</strong><br/><span style="color:#666; font-size:.88rem;">飛機超音速飛行產生的衝擊波</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 不保事項 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">🚫</span>其他「不賠」情況</div>
+    <div class="card-body">
+      <ul class="item-list">
+        <li>
+          <span class="badge-no">不賠</span>
+          <div>
+            <strong>任何間接損失（Consequential Loss）</strong><br/>
+            <span style="color:#666; font-size:.88rem;">例：因爆炸停工導致的營業損失</span>
+          </div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div>
+            <strong>鍋爐、蒸氣設備、壓力容器等「設備本身」的損壞</strong><br/>
+            <span style="color:#666; font-size:.88rem;">包含：預熱器、汽管、蒸汽引擎、內燃機、油壓機、水壓機及其附屬設備本身因爆炸、豁裂、碎裂所致的損失</span>
+          </div>
+        </li>
+        <li>
+          <span class="badge-no">不賠</span>
+          <div>
+            <strong>機器設備轉動/活動零件因離心力或機件損壞引起的豁裂、碎裂</strong><br/>
+            <span style="color:#666; font-size:.88rem;">屬機械險的承保範疇，需另行投保</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    ⚠️ <strong>小提醒：</strong>爆炸險保的是「爆炸事故波及的財物損失」，壓力設備本身的損壞以及機械性故障需另外投保「鍋爐險」或「機械險」。
+  </div>
+
+</div>
+
+<!-- ══════════════ 快速對照 ══════════════ -->
+<div style="margin-top: 32px;">
+  <div class="card">
+    <div class="card-header" style="background:#f3e5f5; color:#6a1b9a;"><span class="icon">📊</span>兩種附加條款快速對照</div>
+    <div class="card-body">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th>💧 水漬險</th>
+            <th>💥 爆炸險</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>主要保障</td>
+            <td class="ok-cell">意外滲漏、管線破損、雨水灌入</td>
+            <td class="ok-cell">爆炸事故造成的財物損失</td>
+          </tr>
+          <tr>
+            <td>最常見賠案</td>
+            <td>鄰居水管爆裂、冷氣漏水</td>
+            <td>瓦斯洩漏引爆、工廠爆炸</td>
+          </tr>
+          <tr>
+            <td>不賠的天災</td>
+            <td class="no-cell">颱風洪水、潮汐、下水道倒灌</td>
+            <td class="no-cell">地震震動（非爆炸引起）</td>
+          </tr>
+          <tr>
+            <td>設備本身損壞</td>
+            <td class="no-cell">水管本身不賠</td>
+            <td class="no-cell">鍋爐/壓力設備本身不賠</td>
+          </tr>
+          <tr>
+            <td>間接損失</td>
+            <td class="no-cell">不賠</td>
+            <td class="no-cell">不賠</td>
+          </tr>
+          <tr>
+            <td>補充險種建議</td>
+            <td>颱風洪水險</td>
+            <td>鍋爐險、機械險</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  本頁面為條款白話說明，僅供參考。實際理賠以保單條款及保險公司核定為準。
+</footer>
+
+<script>
+  function switchTab(name) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    document.querySelector('.tab-btn.' + name).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
