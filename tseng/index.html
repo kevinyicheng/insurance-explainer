@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保單保障說明 — 曾O豪</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    padding: 20px;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a3a6e, #2c5aa0);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .header p { font-size: 13px; opacity: 0.85; }
+  .status-badge {
+    display: inline-block;
+    background: #ff4d4f;
+    color: white;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px 0 10px;
+    padding-left: 4px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-right: 14px;
+    flex-shrink: 0;
+  }
+  .icon-disability { background: #fff3e0; }
+  .icon-hospital   { background: #e3f2fd; }
+  .icon-accident   { background: #fce4ec; }
+
+  .card-title { font-size: 17px; font-weight: 700; }
+  .card-code  { font-size: 12px; color: #999; margin-top: 2px; }
+
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #f0f0f0;
+  }
+  .item-label { font-size: 14px; color: #555; }
+  .item-value { font-size: 16px; font-weight: 700; color: #1a3a6e; text-align: right; }
+  .item-sub   { font-size: 12px; color: #999; margin-top: 2px; }
+
+  .note-box {
+    background: #fffbe6;
+    border-left: 4px solid #faad14;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 14px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #7a5500;
+    line-height: 1.6;
+  }
+
+  .summary-card {
+    background: linear-gradient(135deg, #1a3a6e, #2c5aa0);
+    color: white;
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 8px;
+  }
+  .summary-card h3 { font-size: 14px; opacity: 0.8; margin-bottom: 12px; }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .summary-row:first-of-type { border-top: none; }
+  .summary-label { font-size: 14px; opacity: 0.85; }
+  .summary-value { font-size: 17px; font-weight: 700; }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 24px;
+    padding-bottom: 12px;
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+
+<!-- 頁首 -->
+<div class="header">
+  <h1>保單保障說明</h1>
+  <p>被保險人：曾O豪 ｜ 保單號碼：1056***440-00</p>
+  <div class="status-badge">⚠️ 目前保單狀態：停效</div>
+</div>
+
+<!-- 失能險 -->
+<div class="section-title">失能保障</div>
+<div class="card">
+  <div class="card-header">
+    <div class="icon icon-disability">🛡️</div>
+    <div>
+      <div class="card-title">失能照護險</div>
+      <div class="card-code">XMI 富邦人壽福氣久久失能照護終身壽險</div>
+    </div>
+  </div>
+  <div class="item-row">
+    <div>
+      <div class="item-label">保障金額</div>
+      <div class="item-sub">月領失能照護金</div>
+    </div>
+    <div class="item-value">10,000 元</div>
+  </div>
+  <div class="note-box">
+    符合失能等級（1～11級）即可申請。長期失能或需要照護時，提供持續性的生活補助，不需因病住院才能申請。
+  </div>
+</div>
+
+<!-- 住院醫療險 -->
+<div class="section-title">住院醫療保障</div>
+<div class="card">
+  <div class="card-header">
+    <div class="icon icon-hospital">🏥</div>
+    <div>
+      <div class="card-title">住院醫療險</div>
+      <div class="card-code">HSC6 實支實付 ＋ HKR2 定額日額</div>
+    </div>
+  </div>
+  <div class="item-row">
+    <div>
+      <div class="item-label">HSC6 病房費用</div>
+      <div class="item-sub">實支實付，每日上限</div>
+    </div>
+    <div class="item-value">2,000 元／天</div>
+  </div>
+  <div class="item-row">
+    <div>
+      <div class="item-label">HSC6 雜費／手術費</div>
+      <div class="item-sub">憑收據核實理賠，每次住院上限</div>
+    </div>
+    <div class="item-value">10 萬元</div>
+  </div>
+  <div class="item-row">
+    <div>
+      <div class="item-label">HKR2 住院日額</div>
+      <div class="item-sub">每住院一天，固定給付</div>
+    </div>
+    <div class="item-value">2,000 元／天</div>
+  </div>
+  <div class="note-box">
+    ✅ <strong>不論疾病或意外住院，皆可申請。</strong><br>
+    兩張附約可同時申請，實支實付補貼實際花費，日額補貼生活收入損失。
+  </div>
+</div>
+
+<!-- 意外險 -->
+<div class="section-title">意外保障</div>
+<div class="card">
+  <div class="card-header">
+    <div class="icon icon-accident">⚡</div>
+    <div>
+      <div class="card-title">意外綜合保障</div>
+      <div class="card-code">ADE ＋ OMR ＋ AHI</div>
+    </div>
+  </div>
+  <div class="item-row">
+    <div>
+      <div class="item-label">ADE 意外身故／全殘</div>
+      <div class="item-sub">因意外事故導致身故或全殘</div>
+    </div>
+    <div class="item-value">100 萬元</div>
+  </div>
+  <div class="item-row">
+    <div>
+      <div class="item-label">OMR 意外醫療實支</div>
+      <div class="item-sub">憑醫院收據核實理賠（每次事故）</div>
+    </div>
+    <div class="item-value">10 萬元</div>
+  </div>
+  <div class="item-row">
+    <div>
+      <div class="item-label">AHI 意外住院日額</div>
+      <div class="item-sub">因意外住院，每天固定給付</div>
+    </div>
+    <div class="item-value">2,000 元／天</div>
+  </div>
+  <div class="note-box">
+    ⚠️ 意外險僅限「非疾病的意外事故」才能申請。<br>
+    跌倒、車禍、燙傷等突發事故適用；感冒發燒、慢性病等疾病<strong>不適用</strong>。
+  </div>
+</div>
+
+
+<div class="footer">
+  以上資料僅供說明參考，實際理賠依保單條款及申請當時公司核定為準。<br>
+  資料來源：富邦人壽行動辦公室 115/05/17
+</div>
+
+</body>
+</html>
